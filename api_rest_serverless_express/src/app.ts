@@ -1,6 +1,5 @@
 
 import express from "express";
-import Mongoose from "mongoose";
 import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
@@ -107,17 +106,18 @@ app.get('/charts', async (req, res) => {
     const id: string = uuidv4();
     let image = await Jimp.read('https://chart.googleapis.com/chart?cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World');
 
-    await image.writeAsync(id + '.png');
+    await image.writeAsync('/tmp/' + id + '.png');
 
 
-    const fileContent = fs.readFileSync(id + '.png');
+    const fileContent = fs.readFileSync('/tmp/' + id + '.png');
+
     // Setting up S3 upload parameters
     const params = {
       Bucket: 'charts-app', // Bucket name
       Key: req.decoded.id + '/'+ uuidv4() + '.png', // File name you want to save as in S3
       Body: fileContent 
     };
-
+    
     const s3 = new AWS.S3();
     // Uploading files to the bucket
     s3.upload(params, function (err, data) {
@@ -126,9 +126,10 @@ app.get('/charts', async (req, res) => {
       }
       console.log(`File uploaded successfully. ${data.Location}`);
       // Delete file
-      fs.unlinkSync(id + '.png');
+      fs.unlinkSync('/tmp/' + id + '.png');
       return res.send("Ok Elia");
     });
+
   } catch (err) { throw err; }
 
 });

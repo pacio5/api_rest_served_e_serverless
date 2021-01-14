@@ -19,6 +19,10 @@ functions:
       - http:
           path: /{proxy+}
           method: ANY
+      - s3:
+          bucket: charts-app
+          event: s3:*
+          existing: true
 
 plugins:
   - serverless-plugin-typescript
