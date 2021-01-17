@@ -1,0 +1,73 @@
+service: apiRestServerlessCerV2
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  apiGateway:
+    shouldStartNameWithService: true
+
+functions:
+  serverTest:
+    handler: src/serverTest.online
+    events:
+      - http:
+          path: online
+          method: get
+
+  userCreate: 
+    handler: src/users/signup.signup
+    events: 
+      - http:
+          path: signup
+          method: post
+
+  login: 
+    handler: src/users/login.login
+    events:
+      - http:
+          path: login
+          method: post
+
+  profile:
+    handler: src/users/get.get
+    events:
+      - http:
+          path: profile
+          method: get
+
+  delete:
+    handler: src/users/delete.del
+    events:
+      - http:
+          path: profile
+          method: delete
+
+  chartSave:
+    handler: src/charts/save.save
+    event:
+      - http:
+          path: chart/save
+          method: get
+      - s3:
+          bucket: charts-app
+          event: s3:*
+          existing: true
+
+  chartList:
+    handler: src/charts/list.list
+    event:
+      - http:
+          path: chart/list
+          method: get
+      - s3:
+          bucket: charts-app
+          event: s3:*
+          existing: true
+
+          
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
