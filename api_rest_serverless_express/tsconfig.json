@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "outDir": "./build",
+    "outDir": ".build",
     "sourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
