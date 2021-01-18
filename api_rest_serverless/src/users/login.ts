@@ -11,11 +11,11 @@ export const login: Handler = async (event: any, context: Context, callback: Cal
     let data = querystring.parse(event.body);
     const user = { _id: data.email.toString(), password: data.password.toString() };
     connect();
-    if (!data) return callback(new Error('No data found'));
+    if (!data) return callback(null, {status: 400, body: "Dati mancanti"});
 
     try {
         const userFind = await UserModel.findById(user._id);
-        if (Object.is(userFind, null)) return callback(null, { status: 400, body: `Utente non esistente` });
+        if (Object.is(userFind, null)) return callback(null, { status: 400, body: `Credenziali errate` });
 
         if (!bcrypt.compareSync(user.password, userFind.password))
             return callback(null, { status: 400, body: `Credenziali errate` });
@@ -25,12 +25,12 @@ export const login: Handler = async (event: any, context: Context, callback: Cal
         return callback(null, JSON.stringify({
             status: 400,
             body: {
-                message: "Logged User",
+                message: "Accesso eseguito",
                 token: token
             }
         }));
     } catch (err) {
-        return callback(null, { status: 400, body: `errore` });
+        return callback(null, { status: 400, body: `Errore ${err}` });
     } finally {
         disconnect();
     }

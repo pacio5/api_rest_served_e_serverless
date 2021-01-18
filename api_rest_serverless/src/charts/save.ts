@@ -9,7 +9,6 @@ import { Handler, Context, Callback } from 'aws-lambda';
 export const save: Handler = async (event: any, context: Context, callback: Callback) => {
     try {
         const userId = await auth(event);
-        if (Object.is(userId, null)) return callback(null, { status: 400, body: `Errore di autenticazione` });
 
         const id: string = uuidv4();
         let image = await Jimp.read('https://chart.googleapis.com/chart?cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World');
@@ -23,14 +22,15 @@ export const save: Handler = async (event: any, context: Context, callback: Call
         const params = {
             Bucket: 'charts-app', // Bucket name
             Key: userId.toString() + '/' + uuidv4() + '.png', // File name you want to save as in S3
-            Body: fileContent
+            Body: fileContent,
+            ACL:'public-read'
         };
 
         const s3 = new AWS.S3();
         // Uploading files to the bucket
         const data = await s3.upload(params).promise();
         fs.unlinkSync('/tmp/' + id + '.png');
-        return callback(null, {status: 200, body: "File caricato correttamente: " + data.Location.toString()});
+        return callback(null, {status: 200, body: "Grafico salvato correttamente: " + data.Location.toString()});
 
-    } catch (err) { return callback(null, { status: 200, body: `Errore: ${err}` }); }
+    } catch (err) { return callback(null, { status: 400, body: `Errore: ${err}` }); }
 };

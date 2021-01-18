@@ -6,7 +6,6 @@ import { connect, disconnect } from '../database/database';
 export const get: Handler = async (event: any, context: Context, callback: Callback) => {
     try {
         const id = await auth(event);
-        if (Object.is(id, null)) return callback(null, { status: 400, body: `Errore di autenticazione` });
         connect();
         const user = await UserModel.findById(id);
         return callback(null, { status: 200, body: JSON.stringify(user) });
