@@ -1,14 +1,16 @@
-import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
+import querystring from 'querystring';
 
 const secretKey = 'secretkey';
 
-export function auth (event): boolean {
-    const token = event.body.token || event.query.token || event.headers['x-access-token'];
-    if (!token) return false;
-    jwt.verify(token, secretKey, (err, decode) => {
-        if (err) return false;
-        event.body.decoded = decode;
-        return true;
-    });
-};
+export const auth = function (event): Promise<String> {
+    return new Promise(function (resolve, reject) {
+        const token = querystring.parse(event.body).token || querystring.parse(event.query).token || event.headers['x-access-token'];
+        if (!token) return reject(null);
+        jwt.verify(token, secretKey, (err, decode) => {
+            if (err) return reject(null);
+            return resolve(decode.id);
+        });
+    })
+}
+

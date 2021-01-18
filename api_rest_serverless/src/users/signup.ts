@@ -1,30 +1,30 @@
 import bcrypt from 'bcryptjs';
 import { UserModel } from '../database/users/users.model';
 import { Handler, Context, Callback } from 'aws-lambda';
+import querystring from 'querystring';
+import { connect, disconnect } from "../database/database";
 
-
-export const signup : Handler = (event: any, context: Context, callback: Callback) => {
-    const data = JSON.parse(event.body);
-
-    if(!data) return callback(new Error('Couldn\'t create the todo item.'));
-
-    let user = { _id: data.email, password: bcrypt.hashSync(data.password, bcrypt.genSaltSync(5)) };
-
-    (async () => {
-        try {
-          const newUser = await UserModel.findOneOrCreate(user);
-          if (Object.is(newUser, null)) {
-            return callback(new Error('User exists'))
-          } else {
-            const response = {
-                status: 200,
-                body: `Created user ${user._id}`
-            }
-            return callback(null, response);
-          }
-        } catch (err) {
-            return callback(`error ${err}`)
-        }
-      })();
-};
+export const signup: Handler = async (event: any, context: Context, callback: Callback) => {
+  let data = querystring.parse(event.body);
+  if (!data) return callback(new Error('Couldn\'t create the todo item.'));
   
+  const user = { _id: data.email.toString(), password: bcrypt.hashSync(data.password.toString(), bcrypt.genSaltSync(5)) };
+  
+  try {
+    connect();
+    const userFind = await UserModel.findById(user._id);
+    if (userFind) {
+      return callback(null, { status: 401, body: "User exists"});
+    } else {
+      const newUser = await UserModel.create(user);
+
+      if (Object.is(newUser, null)) {
+        return callback(null, { status: 401, body: "Errore nella creazione" });
+      } else return callback(null, { status: 200, body: "User created" });
+    }
+  } catch (err) {
+    return callback(null, err);
+  } finally {
+    disconnect();
+  }
+};

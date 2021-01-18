@@ -47,7 +47,7 @@ functions:
 
   chartSave:
     handler: src/charts/save.save
-    event:
+    events:
       - http:
           path: chart/save
           method: get
@@ -55,10 +55,10 @@ functions:
           bucket: charts-app
           event: s3:*
           existing: true
-
+  
   chartList:
     handler: src/charts/list.list
-    event:
+    events:
       - http:
           path: chart/list
           method: get
@@ -67,7 +67,6 @@ functions:
           event: s3:*
           existing: true
 
-          
 plugins:
   - serverless-plugin-typescript
   - serverless-offline

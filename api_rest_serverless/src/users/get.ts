@@ -1,19 +1,18 @@
 import { UserModel } from '../database/users/users.model';
 import { auth } from "../authentication";
 import { Handler, Context, Callback } from 'aws-lambda';
+import { connect, disconnect } from '../database/database';
 
-export const get : Handler = (event: any, context: Context, callback: Callback) => {
-    const result = auth(event);
-    if(!result) callback(new Error("unauthenticated user "));
-
-    const data = JSON.parse(event.body);
-    UserModel.findOne({ _id: data.decoded.id }, (err, user) => {
-        if (!user) callback(new Error("no such user found"));
-        const response = {
-            status: 200,
-            user: user
-        };
-
-        return callback(null, response);
-      });
+export const get: Handler = async (event: any, context: Context, callback: Callback) => {
+    try {
+        const id = await auth(event);
+        if (Object.is(id, null)) return callback(null, { status: 400, body: `Errore di autenticazione` });
+        connect();
+        const user = await UserModel.findById(id);
+        return callback(null, { status: 200, body: JSON.stringify(user) });
+    } catch (err) {
+        return callback(null, { status: 400, body: `Errore ${err}` });
+    } finally {
+        disconnect();
+    }
 };

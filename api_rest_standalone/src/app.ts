@@ -29,7 +29,7 @@ const app = express();
 connect();
 
 const port = 3000;
-const secretKey = 'secretkey'
+const secretKey = 'secretkey';
 
 
 app.get('/', (req, res) => {res.send('App is up'); });
@@ -40,7 +40,7 @@ app.use(bodyParser.json())
 
 
 app.post('/signup', (req, res) => {
-  if (!req.body) res.status(400).json({ message: "empty body" })
+  if (!req.body) res.status(400).json({ message: "empty body" });
 
   let user = { _id: req.body.email, password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(5)) };
 
