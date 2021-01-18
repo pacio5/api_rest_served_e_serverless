@@ -16,9 +16,9 @@ export const list: Handler = async (event: any, context: Context, callback: Call
         const s3 = new AWS.S3();
         const data = await s3.listObjectsV2(params).promise();
         console.log(data);
-        return callback(null, { status: 200, body: JSON.stringify(data.Contents) });
+        return callback(null, { statusCode: 200, body: JSON.stringify(data.Contents) });
     } catch (err) {
-        return callback(null, { status: 200, body: `Errore: ${err}` });
+        return callback(null, { statusCode: 200, body: `Errore: ${err}` });
     }
 };
 

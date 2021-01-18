@@ -30,7 +30,7 @@ export const save: Handler = async (event: any, context: Context, callback: Call
         // Uploading files to the bucket
         const data = await s3.upload(params).promise();
         fs.unlinkSync('/tmp/' + id + '.png');
-        return callback(null, {status: 200, body: "Grafico salvato correttamente: " + data.Location.toString()});
+        return callback(null, {statusCode: 200, body: "Grafico salvato correttamente: " + data.Location.toString()});
 
-    } catch (err) { return callback(null, { status: 400, body: `Errore: ${err}` }); }
+    } catch (err) { return callback(null, { statusCode: 400, body: `Errore: ${err}` }); }
 };

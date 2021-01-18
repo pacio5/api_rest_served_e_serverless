@@ -11,26 +11,26 @@ export const login: Handler = async (event: any, context: Context, callback: Cal
     let data = querystring.parse(event.body);
     const user = { _id: data.email.toString(), password: data.password.toString() };
     connect();
-    if (!data) return callback(null, {status: 400, body: "Dati mancanti"});
+    if (!data) return callback(null, {statusCode: 400, body: "Dati mancanti"});
 
     try {
         const userFind = await UserModel.findById(user._id);
-        if (Object.is(userFind, null)) return callback(null, { status: 400, body: `Credenziali errate` });
+        if (Object.is(userFind, null)) return callback(null, { statusCode: 400, body: `Credenziali errate` });
 
         if (!bcrypt.compareSync(user.password, userFind.password))
-            return callback(null, { status: 400, body: `Credenziali errate` });
+            return callback(null, { statusCode: 400, body: `Credenziali errate` });
 
         const token = jwt.sign({ id: userFind._id }, secretKey, { expiresIn: '1h' });
 
-        return callback(null, JSON.stringify({
-            status: 400,
-            body: {
+        return callback(null, {
+            statusCode: 400,
+            body: JSON.stringify({
                 message: "Accesso eseguito",
                 token: token
-            }
-        }));
+            })
+        });
     } catch (err) {
-        return callback(null, { status: 400, body: `Errore ${err}` });
+        return callback(null, { statusCode: 400, body: `Errore ${err}` });
     } finally {
         disconnect();
     }

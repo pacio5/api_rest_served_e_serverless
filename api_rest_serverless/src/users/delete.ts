@@ -11,11 +11,11 @@ export const del: Handler = async (event: any, context: Context, callback: Callb
         const result = await UserModel.deleteOne({ _id: id.toString() });
 
         if (result.n > 0)
-            return callback(null, { status: 200, body: "Utente eliminato" });
+            return callback(null, { statusCode: 200, body: "Utente eliminato" });
         else
-            return callback(null, { status: 400, body: `Errore nell'eliminazione` });
+            return callback(null, { statusCode: 400, body: `Errore nell'eliminazione` });
     } catch (err) {
-        return callback(null, { status: 400, body: `Errore: ${err}` });
+        return callback(null, { statusCode: 400, body: `Errore: ${err}` });
     } finally {
         disconnect();
     }

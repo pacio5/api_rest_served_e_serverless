@@ -8,9 +8,9 @@ export const get: Handler = async (event: any, context: Context, callback: Callb
         const id = await auth(event);
         connect();
         const user = await UserModel.findById(id);
-        return callback(null, { status: 200, body: JSON.stringify(user) });
+        return callback(null, { statusCode: 200, body: JSON.stringify(user) });
     } catch (err) {
-        return callback(null, { status: 400, body: `Errore ${err}` });
+        return callback(null, { statusCode: 400, body: `Errore ${err}` });
     } finally {
         disconnect();
     }
