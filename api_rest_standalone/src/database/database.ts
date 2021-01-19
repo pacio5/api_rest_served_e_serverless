@@ -1,11 +1,12 @@
 import Mongoose from 'mongoose';
+import {dbUser, dbPass} from '../config';
 
 let database: Mongoose.Connection;
 
 // Funzione per la connessione al database
 export const connect = () => {
   const uri =
-    'mongodb://pacio:TQm5V1wwQxXlwsAm@cluster0-shard-00-00-92omp.mongodb.net:27017,cluster0-shard-00-01-92omp.mongodb.net:27017,cluster0-shard-00-02-92omp.mongodb.net:27017/authenticate?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+    `mongodb://${dbUser}:${dbPass}@cluster0-shard-00-00-92omp.mongodb.net:27017,cluster0-shard-00-01-92omp.mongodb.net:27017,cluster0-shard-00-02-92omp.mongodb.net:27017/authenticate?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin`;
 
   if (database) {
     return;

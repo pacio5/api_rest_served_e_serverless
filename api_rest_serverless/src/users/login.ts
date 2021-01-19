@@ -4,6 +4,7 @@ import { UserModel } from '../database/users/users.model';
 import { Handler, Context, Callback } from 'aws-lambda';
 import querystring from 'querystring';
 import { connect, disconnect } from '../database/database';
+import {secretKey} from '../config';
 
 /**
  * 
@@ -14,7 +15,6 @@ import { connect, disconnect } from '../database/database';
  * Tramite i parametri email e password effettua il login e restituisce il token di accesso.
  */
 export const login: Handler = async (event: any, context: Context, callback: Callback) => {
-    const secretKey = 'secretkey';
 
     let data = querystring.parse(event.body);
     const user = { _id: data.email.toString(), password: data.password.toString() };

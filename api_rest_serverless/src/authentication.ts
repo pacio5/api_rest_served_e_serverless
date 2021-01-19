@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import querystring from 'querystring';
-
-const secretKey = 'secretkey';
+import {secretKey} from './config';
 
 export const auth = function (event): Promise<String> {
     return new Promise(function (resolve, reject) {

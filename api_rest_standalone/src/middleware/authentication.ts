@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
-const secretKey = 'secretkey';
+import { secretKey } from '../config';
 
 export function authMiddleware (req: Request, res: Response, next) {
     // Recupera il token

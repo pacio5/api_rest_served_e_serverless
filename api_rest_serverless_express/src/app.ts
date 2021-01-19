@@ -10,6 +10,7 @@ import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 import { authMiddleware } from "./middleware/authentication";
 import serverless from 'serverless-http';
+import {port, secretKey} from "./config";
 
 // Definizione del campo decoded all'interno della Request di Express
 declare global {
@@ -25,9 +26,6 @@ const app = express();
 
 // Apro la connessione con il database
 connect();
-
-const port = 3000;
-const secretKey = 'secretkey'
 
 /**
  * @api {post} / 

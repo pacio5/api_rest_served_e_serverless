@@ -104,3 +104,7 @@ dist
 .tern-port
 .DS_Store
 api_rest_standalone/.DS_Store
+
+
+# Configuration file
+config.ts
