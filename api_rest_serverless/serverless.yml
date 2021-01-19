@@ -60,7 +60,7 @@ functions:
     handler: src/charts/save.save
     events:
       - http:
-          path: chart/save
+          path: chart/save/{chart}
           method: get
     environment:
       BUCKET: ${self:custom.bucket}

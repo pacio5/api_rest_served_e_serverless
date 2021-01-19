@@ -214,14 +214,16 @@ app.delete('/profile', async (req, res) => {
   }
 })
 
-app.get('/charts', async (req, res) => {
+app.get('/charts/save/:chart', async (req, res) => {
   
   try {
     // Generazione nome casuale per il file 
     const id: string = uuidv4();
 
+    const graph : string = req.params.chart;
+
     // Recupero il grafico dall'API di Google Chart
-    let image = await Jimp.read('https://chart.googleapis.com/chart?cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World');
+    let image = await Jimp.read(`https://chart.googleapis.com/chart?${graph}`);
 
     // Scrivo tempoaneamente l'immagine nella cartella locale
     await image.writeAsync('/tmp/' + id + '.png');
@@ -272,7 +274,7 @@ app.get('/charts', async (req, res) => {
  * 
  * Elenco dei grafici salvati dall'utente
  */
-app.get('/list', (req, res) =>{
+app.get('chart/list', (req, res) =>{
   // Definisco i parametri per S3
   const params = {
     Bucket: 'charts-app', // Nome del bucket
