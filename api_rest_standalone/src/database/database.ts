@@ -2,6 +2,7 @@ import Mongoose from 'mongoose';
 
 let database: Mongoose.Connection;
 
+// Funzione per la connessione al database
 export const connect = () => {
   const uri =
     'mongodb://pacio:TQm5V1wwQxXlwsAm@cluster0-shard-00-00-92omp.mongodb.net:27017,cluster0-shard-00-01-92omp.mongodb.net:27017,cluster0-shard-00-02-92omp.mongodb.net:27017/authenticate?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
@@ -29,6 +30,7 @@ export const connect = () => {
 
 };
 
+// Funzione per chiusura della connessione con il database
 export const disconnect = () => {
   if (!database) {
     return;

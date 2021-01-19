@@ -5,8 +5,7 @@
   "main": "./dist/app.js",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/app.ts",
-    "build": "tsc --build",
-    "typedoc": "./node_modules/.bin/typedoc"
+    "build": "tsc --build"
   },
   "keywords": [],
   "author": "",
