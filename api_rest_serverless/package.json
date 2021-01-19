@@ -1,7 +1,7 @@
 {
-  "name": "api_rest_serverless_cer_v2",
+  "name": "api_restful_serverless_cer_v2",
   "version": "1.0.0",
-  "description": "",
+  "description": "API RESTful che permette di utilizzare il servizio Google Chart e salvare il risultato in uno storage AWS S3. Sviluppata in ottica serverless con le Lambda Function",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

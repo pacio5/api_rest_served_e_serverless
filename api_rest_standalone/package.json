@@ -1,7 +1,7 @@
 {
-  "name": "typescript-test",
+  "name": "api_restful_standalone_cer",
   "version": "1.0.0",
-  "description": "",
+  "description": "API RESTful che permette di utilizzare il servizio Google Chart e salvare il risultato in uno storage AWS S3. Sviluppata con ExpressJs",
   "main": "./dist/app.js",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/app.ts",
