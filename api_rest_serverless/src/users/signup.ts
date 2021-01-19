@@ -4,6 +4,14 @@ import { Handler, Context, Callback } from 'aws-lambda';
 import querystring from 'querystring';
 import { connect, disconnect } from "../database/database";
 
+/**
+ * 
+ * @param event contiene nel body email e password
+ * @param context 
+ * @param callback funzione per inviare il risultato all'utente (successo/errore)
+ * 
+ * Tramite i parametri email e password effettua la registrazione dell'utente e restituisce l'esito.
+ */
 export const signup: Handler = async (event: any, context: Context, callback: Callback) => {
   let data = querystring.parse(event.body);
   if (!data) return callback(null, {statusCode: 400, body: "Dati mancanti"});

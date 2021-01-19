@@ -3,6 +3,14 @@ import { auth } from "../authentication";
 import { Handler, Context, Callback } from 'aws-lambda';
 import { connect, disconnect } from '../database/database';
 
+/**
+ * 
+ * @param event contiene il jwt (x-access-token) nell'header
+ * @param context 
+ * @param callback funzione per inviare il risultato all'utente (successo/errore)
+ * 
+ * Dal token recupera l'ide dell'utente ed elimina il profilo se esiste
+ */
 export const del: Handler = async (event: any, context: Context, callback: Callback) => {
     try {
         const id = await auth(event);

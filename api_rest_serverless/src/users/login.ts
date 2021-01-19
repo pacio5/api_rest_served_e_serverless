@@ -5,6 +5,14 @@ import { Handler, Context, Callback } from 'aws-lambda';
 import querystring from 'querystring';
 import { connect, disconnect } from '../database/database';
 
+/**
+ * 
+ * @param event contiene nel body email e password
+ * @param context 
+ * @param callback funzione per inviare il risultato all'utente (successo/errore)
+ * 
+ * Tramite i parametri email e password effettua il login e restituisce il token di accesso.
+ */
 export const login: Handler = async (event: any, context: Context, callback: Callback) => {
     const secretKey = 'secretkey';
 

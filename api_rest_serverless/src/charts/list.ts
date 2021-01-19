@@ -2,6 +2,14 @@ import { auth } from "../authentication";
 import AWS from 'aws-sdk';
 import { Handler, Context, Callback } from 'aws-lambda';
 
+/**
+ * 
+ * @param event non riceve parametri dall'utente
+ * @param context 
+ * @param callback funzione per inviare il risultato all'utente (successo/errore)
+ * 
+ * Restituisce tutto gli oggetti dell'utente che effettua la richiesta
+ */
 export const list: Handler = async (event: any, context: Context, callback: Callback) => {
 
     try {
@@ -21,6 +29,3 @@ export const list: Handler = async (event: any, context: Context, callback: Call
         return callback(null, { statusCode: 200, body: `Errore: ${err}` });
     }
 };
-
-
-`https://charts-app.s3us-east-1.amazonaws.com/eliapacioni@gmail.com/0af772e1-4182-4f3a-a699-9a5e0e8f4a2a.png`;
