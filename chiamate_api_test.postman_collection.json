@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "9a777240-36da-4d89-8665-2a18f419ba00",
+		"name": "API_RESTful_e_API_RESTful_SERVERLESS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Standalone",
+			"item": [
+				{
+					"name": "http://cer.eliapacioni.cloud/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Verifica se il server è funzionante e l'app è online"
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/signup",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": "Registrazione dell'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/login",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTEwOTUxODcsImV4cCI6MTYxMTA5ODc4N30.Q4SsKfnv5xHFFl2Hn7b7oavGooRS5Z5Lrh5NV5NFTSI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/profile",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"profile"
+							]
+						},
+						"description": "Visualizzazione profilo utente"
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/chart/save/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTEwOTUxODcsImV4cCI6MTYxMTA5ODc4N30.Q4SsKfnv5xHFFl2Hn7b7oavGooRS5Z5Lrh5NV5NFTSI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chart",
+									"value": "cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/chart/save/",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"chart",
+								"save",
+								""
+							]
+						},
+						"description": "Generazione e salvataggio del grafico "
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/chart/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTEwOTUxODcsImV4cCI6MTYxMTA5ODc4N30.Q4SsKfnv5xHFFl2Hn7b7oavGooRS5Z5Lrh5NV5NFTSI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/chart/list",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"chart",
+								"list"
+							]
+						},
+						"description": "Lista degli oggetti salvati dall'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "http://cer.eliapacioni.cloud/profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTEwOTUxODcsImV4cCI6MTYxMTA5ODc4N30.Q4SsKfnv5xHFFl2Hn7b7oavGooRS5Z5Lrh5NV5NFTSI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://cer.eliapacioni.cloud/profile",
+							"protocol": "http",
+							"host": [
+								"cer",
+								"eliapacioni",
+								"cloud"
+							],
+							"path": [
+								"profile"
+							]
+						},
+						"description": "Eliminazione dell'utente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serverless Express",
+			"item": [
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jmj502e6ah.execute-api.us-east-1.amazonaws.com/dev/",
+							"protocol": "https",
+							"host": [
+								"jmj502e6ah",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								""
+							]
+						},
+						"description": "Verifica se il server è funzionante e l'app è online"
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jmj502e6ah.execute-api.us-east-1.amazonaws.com/dev/signup",
+							"protocol": "https",
+							"host": [
+								"jmj502e6ah",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"signup"
+							]
+						},
+						"description": "Registrazione dell'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/login",
+							"protocol": "https",
+							"host": [
+								"7s3mwi06lh",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"login"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDI4ODUsImV4cCI6MTYxMTEwNjQ4NX0.dV1W-YxNwfq2SbyNtty0Atnli_r8zV8b_j1CfcDzjwo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jmj502e6ah.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"jmj502e6ah",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						},
+						"description": "Visualizzazione profilo utente"
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/chart/save/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDQyOTgsImV4cCI6MTYxMTEwNzg5OH0.qzYt80QcYiK3KqSiYm6ehjYuSXq4pdtMRvolTVWUdas",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chart",
+									"value": "cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/chart/save/",
+							"protocol": "https",
+							"host": [
+								"7s3mwi06lh",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"chart",
+								"save",
+								""
+							]
+						},
+						"description": "Generazione e salvataggio del grafico "
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/chart/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDQyOTgsImV4cCI6MTYxMTEwNzg5OH0.qzYt80QcYiK3KqSiYm6ehjYuSXq4pdtMRvolTVWUdas",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/chart/list",
+							"protocol": "https",
+							"host": [
+								"7s3mwi06lh",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"chart",
+								"list"
+							]
+						},
+						"description": "Lista degli oggetti salvati dall'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDQyOTgsImV4cCI6MTYxMTEwNzg5OH0.qzYt80QcYiK3KqSiYm6ehjYuSXq4pdtMRvolTVWUdas",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://7s3mwi06lh.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"7s3mwi06lh",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						},
+						"description": "Eliminazione dell'utente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serverless Lambda",
+			"item": [
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/online",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/online",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"online"
+							]
+						},
+						"description": "Verifica se il server è funzionante e l'app è online"
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/signup",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"signup"
+							]
+						},
+						"description": "Registrazione dell'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "account@prova.it",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ciaociao1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/login",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"login"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDcxNTEsImV4cCI6MTYxMTExMDc1MX0.o8Wis0FGjRb6sDR5LEljauLIWCQgMskR-paXLyMY2c8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						},
+						"description": "Visualizzazione profilo utente"
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/chart/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDczMDAsImV4cCI6MTYxMTExMDkwMH0.cPxU4mm0PLdT75KrnsJ_sunSy7EbrczcO5SCHdeyCzI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "chart",
+									"value": "cht=p&chs=250x100&chd=t:60,40&chl=Hello|World",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/chart/save",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"chart",
+								"save"
+							]
+						},
+						"description": "Generazione e salvataggio del grafico "
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/chart/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDczMDAsImV4cCI6MTYxMTExMDkwMH0.cPxU4mm0PLdT75KrnsJ_sunSy7EbrczcO5SCHdeyCzI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/chart/list",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"chart",
+								"list"
+							]
+						},
+						"description": "Lista degli oggetti salvati dall'utente "
+					},
+					"response": []
+				},
+				{
+					"name": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjY291bnRAcHJvdmEuaXQiLCJpYXQiOjE2MTExMDczMDAsImV4cCI6MTYxMTExMDkwMH0.cPxU4mm0PLdT75KrnsJ_sunSy7EbrczcO5SCHdeyCzI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jle7lcri9g.execute-api.us-east-1.amazonaws.com/dev/profile",
+							"protocol": "https",
+							"host": [
+								"jle7lcri9g",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"profile"
+							]
+						},
+						"description": "Eliminazione dell'utente"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

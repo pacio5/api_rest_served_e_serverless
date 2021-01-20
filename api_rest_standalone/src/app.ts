@@ -215,10 +215,11 @@ app.delete('/profile', async (req, res) => {
 });
 
 /**
- * @api {post} /chart/save/{chart} Salvataggio del grafico richiesto
+ * @api {post} /chart/save/ Salvataggio del grafico richiesto
  * @apiName ChartSave
  * @apiGroup Chart
- * @method GET 
+ * @method POST 
+ * @apiParam chart Contiene la stringa per l'elaborazione del grafico
  * 
  * @apiSuccess {String} Esito
  * @apiSuccessExample Success-Response
@@ -236,13 +237,13 @@ app.delete('/profile', async (req, res) => {
  * 
  * Salvataggio del grafico generato in base ai parametri dell'utente
  */
-app.get('/chart/save/:chart', async (req, res) => {
+app.post('/chart/save/', async (req, res) => {
 
   try {
     // Generazione nome casuale per il file 
     const id: string = uuidv4();
 
-    const graph : string = req.params.chart;
+    const graph : string = req.body.chart;
 
     // Recupero il grafico dall'API di Google Chart
     let image = await Jimp.read(`https://chart.googleapis.com/chart?${graph}`);

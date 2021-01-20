@@ -4,10 +4,11 @@ import Jimp from 'jimp';
 import fs from 'fs';
 import AWS from 'aws-sdk';
 import { Handler, Context, Callback } from 'aws-lambda';
+import querystring from 'querystring';
 
 /**
  * 
- * @param event riceve la stringa per generare il grafico 
+ * @param event event.body.chart riceve la stringa per generare il grafico 
  * @param context 
  * @param callback funzione per inviare il risultato all'utente (successo/errore)
  * 
@@ -19,8 +20,10 @@ export const save: Handler = async (event: any, context: Context, callback: Call
 
         // Generazione nome casuale per il file 
         const id: string = uuidv4();
+        // Recupera i parametri per la creazione del grafico
+        let chart = querystring.parse(event.body).chart;
         // Recupero il grafico dall'API di Google Chart
-        let image = await Jimp.read(`https://chart.googleapis.com/chart?${event.pathParameters.chart}`);
+        let image = await Jimp.read(`https://chart.googleapis.com/chart?${chart}`);
         // Scrivo tempoaneamente l'immagine nella cartella locale
         await image.writeAsync('/tmp/' + id + '.png');
 
