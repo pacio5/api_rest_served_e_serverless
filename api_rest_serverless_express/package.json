@@ -2,7 +2,7 @@
   "name": "api_restful_serverless_cer",
   "version": "1.0.0",
   "description": "API RESTful che permette di utilizzare il servizio Google Chart e salvare il risultato in uno storage AWS S3. Sviluppata con ExpressJs e Serverless Framework per il deploy come API REST SERVERLESS su AWS o altri servizi simili.",
-  "main": "./dist/app.js",
+  "main": ".build/app.js",
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/app.ts",
     "build": "tsc --build"

@@ -12,9 +12,5 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", ".vscode"],
-  "typedocOptions": {
-    "entryPoints": ["src/app.ts"],
-    "out": "./dist/docs"
-  }
+  "exclude": ["node_modules", ".vscode"]
 }
