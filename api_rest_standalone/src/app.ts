@@ -24,7 +24,7 @@ declare global {
 
 const app = express();
 
-// Apro la connessione con il database
+// Apre la connessione con il database
 connect();
 
 /**
@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 /**
- * @api {post} /signup Signup
+ * @api {post} /signup 
  * @apiName Signup
  * @apiGroup User
  * @method POST 
@@ -99,7 +99,7 @@ app.post('/signup', (req, res) => {
 });
 
 /**
- * @api {post} /login Login
+ * @api {post} /login 
  * @apiName Login
  * @apiGroup User
  * @method POST 
@@ -146,8 +146,8 @@ app.use(authMiddleware);
 
 
 /**
- * @api {post} /profile Profilo Utente
- * @apiName Profile
+ * @api {post} /profile  
+ * @apiName Profilo utente
  * @apiGroup User
  * @method GET 
  * 
@@ -178,8 +178,8 @@ app.get('/profile', (req, res) => {
 });
 
 /**
- * @api {post} /profile Elimina Profilo Utente
- * @apiName Profile
+ * @api {post} /profile 
+ * @apiName Eliminazione profilo utente
  * @apiGroup User
  * @method DELETE 
  * 
@@ -215,7 +215,7 @@ app.delete('/profile', async (req, res) => {
 });
 
 /**
- * @api {post} /chart/save/ Salvataggio del grafico richiesto
+ * @api {post} /chart/save/ 
  * @apiName ChartSave
  * @apiGroup Chart
  * @method POST 
@@ -273,7 +273,7 @@ app.post('/chart/save/', async (req, res) => {
 });
 
 /**
- * @api {post} /chart/list Elenco dei grafici
+ * @api {post} /chart/list 
  * @apiName ChartList
  * @apiGroup Chart
  * @method GET 
