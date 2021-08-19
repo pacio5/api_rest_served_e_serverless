@@ -256,7 +256,7 @@ app.post('/chart/save/', async (req, res) => {
     // Definisco i parametri per l'upload su S3
     const params = {
       Bucket: 'charts-app', // Nome del bucket
-      Key: req.decoded.id + '/'+ uuidv4() + '.png', // Non del file salvato su S3
+      Key: req.decoded.id + '/'+ uuidv4() + '.png', // Nome del file salvato su S3
       Body: fileContent, // Contenuto del file
       ACL:'public-read' // Regole di scritture del file
     };

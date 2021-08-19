@@ -32,7 +32,7 @@ export const save: Handler = async (event: any, context: Context, callback: Call
         // Definisco i parametri per l'upload su S3
         const params = {
             Bucket: 'charts-app', // Nome del bucket
-            Key: userId.toString() + '/' + uuidv4() + '.png', // Non del file salvato su S3
+            Key: userId.toString() + '/' + uuidv4() + '.png', // Nome del file salvato su S3
             Body: fileContent, // Contenuto del file
             ACL: 'public-read' // Regole di scritture del file
         };
