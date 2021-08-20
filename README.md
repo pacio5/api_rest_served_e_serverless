@@ -1,4 +1,4 @@
-# API RESTful served e API RESTful in soluzioni serverless
+# API RESTful served e serverless
 
 ## Sommario
 
@@ -485,11 +485,47 @@ Il test eseguito è di tipo prestazionale, incentrato sul tempo di evasione dell
 
 ![Comparativa Prestazioni Architetture](./images/confronti/comparativa.png)
 
+Come previsto, tenendo conto solo delle performace, l'architettura served è la migliore. 
 
+Il test tra l'architettura serverless-express e serverless è da discutere in modo più approfondito perché questo risultato non può essere preso come un riferimento generale. In questo contesto dobbiamo distinguere tra piccole/medie applicazioni e grandi applicazioni.
+
+Nel caso di applicazioni 'piccole/medie', il tempo di avvio da parte di aws dell'interno monolite è basso e, mantenendo tutto in cache quest'architettura 'ibrida' sembrerebbe migliore dell'architettura serverless nativa. 
+
+Se consideriamo applicazioni 'grandi', avviare l'intero monolite sarebbe più dispendioso ed a quel punto l'architettura serverless nativa si dimostrerebbe nettamente superiore in termini di performance. 
+
+Ad ogni modo, nelle architetture serverless vediamo il forte impatto della cache sulle performace. 
 
 ## [Conclusioni](#conclusioni)
 
+La scelta dell'archiettura da utilizzare non è assoluta ma varia in base agli obiettivi ed alle caratteristiche del progetto, alle possibilità e competenze degli sviluppatori.
 
+Se il focus del progetto sono le performance, possiamo percorre due strade: 
+- server dedicato:
+  - performance ottime;
+  - costi elevati;
+  - problemi di scalabilità;
+  - necessita di un team altamente qualificato;
+- serverless nativo: 
+  - riduzione dei costi;
+  - performace leggermente inferiori (è possibile aumentare la potenza di calcolo pagando di più il servizio del vendor);
+  - gestione del server delegata al vendor;
+  - scalabilità automatica e idealmente infinita;
+
+Nel caso di un'applicazione esistente, funzionante su un server dedicato, si può procedere in due step:
+- 1) passaggio a serverless mediante architettura ibrida con express;
+- 2) sviluppo parallelo dell'applicazione serverless nativa;
+
+Questa soluzione permette di essere da subito operativi in modalità serverless e contemporaneamente iniziare la transizione verso il serverless nativo.
+
+L'architettura serverless è fortemente consigliata nella maggior parte dei casi, ci sono però alcune applicazioni che non possono essere convertite o dove la conversione non apporterebbe vantaggi. Come:
+- applicazioni che sfruttano connessioni ***Web Sockets***, in tal caso viene violato uno dei principi fondamentali del serverless: ***le funzioni lambda devono eseguire un lavoro e restituire il risultato entro tempi stabiliti***;
+- applicazioni che usano frequentemente dei task schedulati;
+- applicazioni che necessitano di una forte integrazione con il sistema operativo.
+
+
+In conclusione, l'architettura serverless rappresenta sicuramente il presente ed il futuro di moltissime tipologie di applicazioni web, non della totalità. In alcuni casi continuereanno ad essere necessarie macchine dedicate. 
+
+Nei casi in cui è possibile, il passaggio a serverless permette di distribuire le risorse con un focus differente, concentrandosi maggiormente nello sviluppo dell'applicazione piuttosto che nella manutenzione. 
 
 ## [Bibliografia](#bibliografia)
 
