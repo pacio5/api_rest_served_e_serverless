@@ -27,7 +27,7 @@
 
 ## [Introduzione](#introduzione)
 
-Le **API (acronimo di Application Programming Interface)** sono set di definizioni e protocolli con i quali vengono realizzati e integrati software applicativi differenti tra loro. Consentono ai prodotti o servizi di comunicare con altri prodotti o servizi senza sapere come vengono implementati, semplificando così lo sviluppo delle applicazioni e consentendo un netto risparmio di tempo e denaro.
+Le **API (acronimo di Application Programming Interface)** sono set di definizioni e protocolli con i quali vengono realizzati e integrati software applicativi differenti tra loro. Consentono ai prodotti o servizi di comunicare con altri prodotti o servizi senza sapere come vengono implementati, semplificando così lo sviluppo delle applicazioni e permettendo un netto risparmio di tempo e denaro.
 
 Talvolta vengono concepite come una forma di contratto, con una documentazione che rappresenta un accordo tra le parti: se la parte A invia una richiesta remota strutturata in un determinato modo, il software della parte B risponderà in un altro modo determinato.
 
@@ -49,43 +49,43 @@ L’architettura REST si declina in una serie di vincoli e principi stabiliti da
     *	L'ipertesto/ipermedia sia motore dello stato dell'applicazione: accedendo alla risorsa, il client REST deve poter individuare, attraverso hyperlink, tutte le altre azioni disponibili al momento.
 -	**Code on demand**: la possibilità di inviare codice eseguibile dal server al client quando richiesto, estendendo le funzionalità del client.
 
-Poiché REST è un insieme di principi architetturali, non un protocollo né uno standard; chi sviluppa API può implementare i principi REST in diversi modi.
+Poiché REST è un insieme di principi architetturali, non un protocollo né uno standard, chi sviluppa API può implementare i principi REST in diversi modi.
 
 Un punto molto importante da chiarire è che ***REST e RESTful*** non sono esattamente la stessa cosa: REST rappresenta l’architettura, mentre RESTful rappresenta tutto ciò che viene sviluppato seguendo i principi dell’architettura REST. 
 
 
-Il protocollo **SOAP (Simple Object Access Protocol)** è in uso dagli anni 90 per consentire la comunicazione tra un client ed i servizi di un server, può operare su differenti protocolli di rete, il più usato è HTTP.
-SOAP si basa sul set di informazioni XML, la struttura del documento è composta da due parti:
-- ***head*** (facoltativa): ontiene metadati per l'instradamento e la sicurezza;
+Il protocollo **SOAP (Simple Object Access Protocol)** è in uso dagli anni 90 per consentire la comunicazione tra un client ed i servizi di un server, può operare su differenti protocolli di rete; il più usato è HTTP.
+SOAP si basa sul set di informazioni XML; la struttura del documento è composta da due parti:
+- ***head*** (facoltativa): contiene metadati per l'instradamento e la sicurezza;
 - ***body***: trasporta il payload.
 
 Il rispetto dei molteplici criteri delle API REST risulta più agevole del rispetto del singolo protocollo SOAP (Simple Object Access Protocol), che prevede requisiti specifici come la messaggistica XML e la conformità integrata di sicurezza e transazione, che rendono il tutto più lento e pesante. 
 Ne consegue che le API REST sono ottime per scenari come l’**IoT** e lo sviluppo di **applicazioni mobile**.
 
 Questo progetto presenta due tipi di API REST:
- - **served**: si intende un’API RESTful messa in produzione su un server, occupandosi, oltre al processo di deploy dell’API, anche della configurazione e manutenzione del server web.
- - **serverless**: per parlare di API REST in soluzioni serverless abbiamo bisogno di approfondire il concetto di cloud computing e successivamente serverless computing.
+ - **served**: viene proposta un’API RESTful messa in produzione su un server, che comprende il processo di deploy dell’API, la configurazione e manutenzione del server web.
+ - **serverless**: per parlare di API REST in soluzioni serverless occorre approfondire il concetto di cloud computing e serverless computing.
 
 ### [Cloud computing](#cloud-computing)
 
-Esistono diverse definizioni di cloud computing, è difficile stabilire quale è corretta e quale no perché ognuna di esse rappresenta una parte del cloud computing.
+Esistono diverse definizioni di cloud computing che ne evidenziano uno o più aspetti.
 
 Una prima definizione è la seguente: 
 > Commercializzazione di risorse di calcolo, storage on-demand e consumo di risorse "pay-as-you-go".
 
-Il National Institute of Standards and Technology(NIST), definisce il cloud computing come segue: 
+Il National Institute of Standards and Technology(NIST) definisce il cloud computing come segue: 
 > "Il cloud computing è un modello che permette l'accesso ubiquo, adattivo e su richiesta a risorse informatiche condivise e configurabili (reti, server, applicazioni, storage e servizi) che possono essere fornite e rilasciate con il minimo sforzo e interazione con il fornitore di servizi."
 
 L'Università di Berkeley definisce: 
 > Il cloud computing si riferisce alle applicazioni fornite come servizio su Internet, come l'hardware e il software nei centri dati che forniscono questi servizi.
-Quest'ultima è stata poi classificata come il modello SaaS che vedremo in seguito.
+Quest'ultima è stata poi classificata come il modello SaaS, di seguito analizzato.
 
 L'utilizzo del cloud computing è diventato una realtà stabile grazie all’incremento vertiginoso della potenza di calcolo ed al miglioramento dei **sistemi di virtualizzazione**.
 
 Esistono diversi modelli di cloud computing:
 -	**SaaS** (software as a service): ad esempio Office 365, Gmail, l'accesso al software avviene tramite internet ed i dati sono salvati in cloud.
--	**IaaS** (infrastucture as a service): l’infrastruttura è un servizio, in pochi secondi è possibile creare una macchina virtuale per le proprie esigenze.
--	**PaaS** (platform as a service): non si richiede una macchina virtuale ma direttamente un web server, in sostanza viene richiesto direttamente quello che è necessario (senza preoccuparsi della configurazione del resto).
+-	**IaaS** (infrastucture as a service): l’infrastruttura è un servizio; in pochi secondi è possibile creare una macchina virtuale per le proprie esigenze.
+-	**PaaS** (platform as a service): non si richiede una macchina virtuale ma direttamente un web server; in sostanza viene richiesto direttamente quello che è necessario (senza preoccuparsi della configurazione del resto).
 -	**BaaS** (backend as a service): ad esempio login con Facebook, permette di usare un servizio di un'altra applicazione, interfacciandosi tramite API. 
 -	**FaaS** (function as a service): il codice viene organizzato in funzioni, ogni funzione è invocabile tramite evento. Le funzioni sono atomiche, svolgono un singolo lavoro e non devono mai restare in attesa.   
 
@@ -184,7 +184,7 @@ Il **JWT** contiene all'interno del payload anche l'id dell'utente, quindi passa
 
 ### Google Charts
 
-Vengono inoltre utilizzate le API di [Google Chart](https://developers.google.com/chart/image/docs/making_charts) che vengono consulate tramite chiamate HTTP e restituiscono l'immagine desiderata.
+Vengono inoltre utilizzate le API di [Google Chart](https://developers.google.com/chart/image/docs/making_charts) che vengono consultate tramite chiamate HTTP e restituiscono l'immagine desiderata.
 
 ### Postman
 
@@ -284,7 +284,7 @@ Il flusso dell'applicazione in questo caso prevede che l'utente effettui una ric
 
 `http://cer.eliapacioni.cloud/`
 
-La richiesta viene ricevuta dal web server sulla porta 80. A questo punto, essendo Nginx configurato come server block e reverse proxy, instrada la richiesta all'applicazione collegata al blocco `cer` e la inoltra alla porta **3000** su cui è in ascolto l'applicazione Nodejs.
+La richiesta viene ricevuta dal web server sulla porta 80. Poiché è configurato come server block e reverse proxy, Nginx instrada la richiesta all'applicazione collegata al blocco `cer` e la inoltra alla porta **3000** su cui è in ascolto l'applicazione Nodejs.
 
 L'applicazione passa la richiesta alla libreria **Express** che la incapsula nell'oggetto **Request** e tramite il router interno invoca la rotta desiderata, nell'esempio: '**/**', definita come rotta di servizio.
 
@@ -315,7 +315,7 @@ In Typescript, se non viene dichiarata la proprietà, al momento dell'assegnazio
 #### Deploy
  
 Per effettuare il deploy è necessario:
-- configurare il sistema: installando i linguaggi ed i moduli necessari all'applicazione, nel caso di un server condiviso tra più applicazioni è necessario verificare la compatibilità/incompatibilità con i pacchetti di altre applicazioni;
+- configurare il sistema: installando i linguaggi ed i moduli necessari all'applicazione, nel caso di un server condiviso tra più applicazioni occorre verificare la compatibilità/incompatibilità con i pacchetti di altre applicazioni;
 - web server: creare il **server block** dell'applicazione e configurarlo per ascoltare ed indirizzare sulle porte desiderate;
 - caricare il codice dell'applicazione nella cartella a cui punta il server block;
 - installare le librerie ed i pacchetti collegati alla nostra applicazione.
@@ -337,7 +337,7 @@ Questa soluzione è efficace ma presenta costi elevati dovuti all'utilizzo di pi
 
 Con ***PM2*** e la direttiva watch, non è necessario l'impiego di altri server ed il tempo in cui l'applicazione è offline viene notevolmente ridotto. 
 
-Ad ogni modo, sarà sempre presente un downtime.
+In ogni caso, sarà sempre presente un downtime.
 
 #### Affidabilità e sicurezza
 L'affidabilità della nostra applicazione è legata alla struttura su cui la stiamo eseguendo e che dobbiamo direttamente gestire. Quindi è intrinsecamente legata alla preparazione del team che mantiene il progetto.
@@ -411,7 +411,7 @@ Una volta definita l'applicazione, il vendor sceglierà su che S.O. eseguirla e 
 
 #### Prestazioni
 
-Le prestazioni sono leggeramente inferiori rispetto all'uso di un server dedicato, d'altro canto la scalabilità è idealmente illimitata poiché può usufruire di tutta le potenza di calcolo di AWS. 
+Le prestazioni sono leggermente inferiori rispetto all'uso di un server dedicato, mentre la scalabilità è idealmente illimitata poiché può usufruire di tutta le potenza di calcolo di AWS. 
 
 Se l'applicazione è usata frequentemente, Amazon terrà il ***container*** in cache e la sua esecuzione sarà molto più rapida rispetto ad un'applicazione poco utilizzata.
 
@@ -497,14 +497,14 @@ Ad ogni modo, nelle architetture serverless vediamo il forte impatto della cache
 
 ## [Conclusioni](#conclusioni)
 
-La scelta dell'archiettura da utilizzare non è assoluta ma varia in base agli obiettivi ed alle caratteristiche del progetto, alle possibilità e competenze degli sviluppatori.
+La scelta dell'architettura da utilizzare non è assodata ma varia in base agli obiettivi ed alle caratteristiche del progetto, alle possibilità e competenze degli sviluppatori.
 
-Se il focus del progetto sono le performance, possiamo percorre due strade: 
+Se il focus del progetto sono le performance, si possono percorre due strade: 
 - server dedicato:
   - performance ottime;
   - costi elevati;
   - problemi di scalabilità;
-  - necessita di un team altamente qualificato;
+  - necessità di un team altamente qualificato;
 - serverless nativo: 
   - riduzione dei costi;
   - performace leggermente inferiori (è possibile aumentare la potenza di calcolo pagando di più il servizio del vendor);
@@ -517,15 +517,15 @@ Nel caso di un'applicazione esistente, funzionante su un server dedicato, si pu�
 
 Questa soluzione permette di essere da subito operativi in modalità serverless e contemporaneamente iniziare la transizione verso il serverless nativo.
 
-L'architettura serverless è fortemente consigliata nella maggior parte dei casi, ci sono però alcune applicazioni che non possono essere convertite o dove la conversione non apporterebbe vantaggi. Come:
+L'architettura serverless è fortemente consigliata nella maggior parte dei casi, ci sono però alcune applicazioni che non possono essere convertite o dove la conversione non apporterebbe vantaggi. Si citano i casi delle:
 - applicazioni che sfruttano connessioni ***Web Sockets***, in tal caso viene violato uno dei principi fondamentali del serverless: ***le funzioni lambda devono eseguire un lavoro e restituire il risultato entro tempi stabiliti***;
 - applicazioni che usano frequentemente dei task schedulati;
 - applicazioni che necessitano di una forte integrazione con il sistema operativo.
 
 
-In conclusione, l'architettura serverless rappresenta sicuramente il presente ed il futuro di moltissime tipologie di applicazioni web, non della totalità. In alcuni casi continuereanno ad essere necessarie macchine dedicate. 
+In conclusione, l'architettura serverless rappresenta sicuramente il presente ed il futuro di moltissime tipologie di applicazioni web, ma non della totalità. In alcuni casi continueranno ad essere necessarie macchine dedicate. 
 
-Nei casi in cui è possibile, il passaggio a serverless permette di distribuire le risorse con un focus differente, concentrandosi maggiormente nello sviluppo dell'applicazione piuttosto che nella manutenzione. 
+Nei casi in cui è possibile effettuarlo il passaggio a serverless permette di distribuire le risorse con un focus differente, concentrandosi maggiormente nello sviluppo dell'applicazione piuttosto che nella manutenzione. 
 
 ## [Bibliografia](#bibliografia)
 
